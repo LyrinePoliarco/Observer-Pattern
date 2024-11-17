@@ -1,19 +1,19 @@
-// Subscriber class (Observer)
-public class Subscriber {
-    private String name;
 
-    // Constructor to initialize the name of the subscriber
-    public Subscriber(String name) {
-        this.name = name;
+
+public class Subscriber implements SubscriberObserver {
+
+    private String subscriberName;
+
+    public String getSubscriberName() {
+        return subscriberName;
     }
 
-    // Method to receive news updates
-    public void update(String news) {
-        System.out.println(name + " received news: " + news);
+    public void setSubscriberName(String subscriberName) {
+        this.subscriberName = subscriberName;
     }
 
-    // Getter for the name
-    public String getName() {
-        return name;
+    @Override
+    public void updateNews(NewsAgency newsAgency) {
+        System.out.println(subscriberName + " received news: " + newsAgency.getNews());
     }
 }

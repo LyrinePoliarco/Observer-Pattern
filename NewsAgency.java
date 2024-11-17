@@ -1,36 +1,35 @@
+
 import java.util.ArrayList;
 import java.util.List;
 
-// NewsAgency class (Publisher)
-public class NewsAgency {
+public class NewsAgency implements NewsSubject {
+
+    private String news;
     private List<Subscriber> subscribers = new ArrayList<>();
 
-    // Method to subscribe a new subscriber
-    public void subscribe(Subscriber subscriber) {
-        if (!subscribers.contains(subscriber)) {
-            subscribers.add(subscriber);
-            System.out.println(subscriber.getName() + " has subscribed.");
-        }
+    public String getNews() {
+        return news;
     }
 
-    // Method to unsubscribe a subscriber
-    public void unsubscribe(Subscriber subscriber) {
-        if (subscribers.contains(subscriber)) {
-            subscribers.remove(subscriber);
-            System.out.println(subscriber.getName() + " has unsubscribed.");
-        }
+    public void setNews(String news) {
+        this.news = news;
+        notifySubscribers();
     }
 
-    // Method to notify all subscribers
-    public void notifySubscribers(String news) {
+    @Override
+    public void attach(Subscriber subscriber) {
+        subscribers.add(subscriber);
+    }
+
+    @Override
+    public void detach(Subscriber subscriber) {
+        subscribers.remove(subscriber);
+    }
+
+    @Override
+    public void notifySubscribers() {
         for (Subscriber subscriber : subscribers) {
-            subscriber.update(news);
+            subscriber.updateNews(this);
         }
-    }
-
-    // Method to publish news
-    public void publishNews(String news) {
-        System.out.println("Publishing news: " + news);
-        notifySubscribers(news);
     }
 }
