@@ -3,7 +3,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class PSE {
+public class Main {
     public static void main(String[] args) {
 
         // Create subscribers
