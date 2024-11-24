@@ -30,4 +30,5 @@ Constraints:
 The system should be scalable to handle a growing number of subscribers without compromising performance.
 Ensure that the implementation follows object-oriented design principles and promotes loose coupling between the news agency and subscribers.
 
-![Blank diagram (3)](https://github.com/user-attachments/assets/8f3b01db-aa3b-4ed8-a9f5-1294184b6627)
+![Blank diagram (4)](https://github.com/user-attachments/assets/55ef2db4-b0a6-414c-9eac-343acc214139)
+
